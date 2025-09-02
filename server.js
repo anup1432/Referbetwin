@@ -57,8 +57,8 @@ bot.start(async (ctx) => {
   ctx.reply(
     `👋 Welcome ${ctx.from.first_name}!\n🎁 You got $1 signup bonus!\nStart playing now 👇`,
     Markup.inlineKeyboard([
-      // Web App button (Telegram in-app browser)
-      [Markup.button.webApp("▶️ Play", { url: process.env.WEBSITE_URL })]
+      // Correct Web App button syntax
+      [Markup.button.webApp("▶️ Play", process.env.WEBSITE_URL)]
     ])
   );
 });
