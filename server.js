@@ -56,7 +56,9 @@ bot.start(async (ctx) => {
 
   ctx.reply(
     `👋 Welcome ${ctx.from.first_name}!\n
-    process:- !/n click/balance click withdraw get a code go to Website ad click deposit enter amount 1$ fill code and submit after some time you can get 1$ go and play 🌷!/n🎁 You got $1 signup bonus!\nStart playing now 👇`,
+    process:- 
+    click/balance click withdraw get a code go to Website ad click deposit enter amount 1$ fill code and submit after some time you can get 1$ go and play 🌷
+    🎁 You got $1 signup bonus!\nStart playing now 👇`,
     Markup.inlineKeyboard([
       // Correct Web App button syntax
       [Markup.button.webApp("▶️ Play", process.env.WEBSITE_URL)]
