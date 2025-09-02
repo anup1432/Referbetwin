@@ -9,12 +9,12 @@ dotenv.config();
 const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-// MongoDB connection
+// MongoDB connect
 mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log("✅ MongoDB Connected"))
   .catch(err => console.error("❌ MongoDB Error:", err));
 
-// Create or get user + referral bonus
+// Helper: Create or get user + referral bonus
 async function findOrCreateUser(userId, referredBy = null) {
   let user = await User.findOne({ userId });
   if (!user) {
@@ -57,7 +57,8 @@ bot.start(async (ctx) => {
   ctx.reply(
     `👋 Welcome ${ctx.from.first_name}!\n🎁 You got $1 signup bonus!\nStart playing now 👇`,
     Markup.inlineKeyboard([
-      [Markup.button.url("▶️ Play", process.env.WEBSITE_URL)]
+      // Web App button (Telegram in-app browser)
+      [Markup.button.webApp("▶️ Play", { url: process.env.WEBSITE_URL })]
     ])
   );
 });
